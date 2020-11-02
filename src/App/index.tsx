@@ -6,6 +6,7 @@ import Button from 'components/Button'
 import RadioGroup, { Option } from 'components/RadioGroup'
 import Topping from 'components/Topping'
 import toppingImages from 'assets/toppings'
+import Price from 'components/Price'
 
 import { Container } from './app.styles'
 
@@ -21,6 +22,7 @@ const App: React.FC = () => (
       <RadioGroup options={options} />
       <Topping label="pepperoni" image={toppingImages.pepperoni} />
       <Topping disabled label="bacon" image={toppingImages.bacon} />
+      <Price value={10.5} />
     </Panel>
     <Button text="button" />
     <Button isRed text="red button" />
