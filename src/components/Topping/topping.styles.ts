@@ -6,6 +6,7 @@ export const Container = styled.div<{ disabled?: boolean }>`
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   display: flex;
   align-items: center;
+  opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
 
   > label {
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
