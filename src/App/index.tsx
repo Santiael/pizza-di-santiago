@@ -3,13 +3,21 @@ import React from 'react'
 import Header from 'components/Header'
 import Panel from 'components/Panel'
 import Button from 'components/Button'
+import RadioGroup, { Option } from 'components/RadioGroup'
 
 import { Container } from './app.styles'
+
+const options: Option[] = [
+  { label: 'option 1', description: '(this description)', value: 10 },
+  { label: 'option 2', value: 20 },
+]
 
 const App: React.FC = () => (
   <Container>
     <Header />
-    <Panel title="Panel" />
+    <Panel title="Panel">
+      <RadioGroup options={options} />
+    </Panel>
     <Button text="button" />
     <Button isRed text="red button" />
   </Container>
