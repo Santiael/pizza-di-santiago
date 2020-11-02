@@ -11,10 +11,14 @@ export const OptionWrapper = styled.div`
     margin-bottom: 0;
   }
 
-  > :first-of-type {
+  > div:first-of-type {
     cursor: pointer;
     display: flex;
     align-items: center;
+
+    > label {
+      cursor: pointer;
+    }
   }
 `
 
