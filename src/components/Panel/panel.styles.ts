@@ -12,7 +12,6 @@ export const Container = styled.div`
 
   > h2 {
     text-align: center;
-    font-size: 1.2em;
     margin-bottom: 10px;
     padding: 8px 0;
     border-bottom: 1px solid ${colors.brown};

@@ -8,7 +8,6 @@ export const Container = styled.button<{ isRed?: boolean }>`
   padding: 18px 12px;
   color: ${colors.white};
   background: ${({ isRed }) => (isRed ? colors.red : colors.green)};
-  font-size: 1.2em;
   border: 1px solid
     ${({ isRed }) => (isRed ? colors.redDark : colors.greenDark)};
   border-radius: 4px;
