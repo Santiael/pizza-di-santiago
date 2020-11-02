@@ -5,7 +5,7 @@ import Panel from '..'
 
 describe('<Panel />', () => {
   it('should render', () => {
-    const result = render(<Panel />)
+    const result = render(<Panel title="title" />)
     expect(result).toBeDefined()
   })
 
