@@ -1,5 +1,13 @@
 import React from 'react'
 
-const App: React.FC = () => <h1>Pizza di Santiago</h1>
+import Header from 'components/Header'
+
+import { Container } from './app.styles'
+
+const App: React.FC = () => (
+  <Container>
+    <Header />
+  </Container>
+)
 
 export default App
