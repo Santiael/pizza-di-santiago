@@ -1,32 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
+import { useNavigation } from 'navigation'
 import Header from 'components/Header'
-import Panel from 'components/Panel'
-import Button from 'components/Button'
-import RadioGroup, { Option } from 'components/RadioGroup'
-import Topping from 'components/Topping'
-import toppingImages from 'assets/toppings'
-import Price from 'components/Price'
+import SizeAndCrust from 'pages/SizeAndCrust'
 
 import { Container } from './app.styles'
 
-const options: Option[] = [
-  { label: 'option 1', description: '(this description)', value: 10 },
-  { label: 'option 2', value: 20 },
-]
+const App: React.FC = () => {
+  const { context } = useNavigation()
 
-const App: React.FC = () => (
-  <Container>
-    <Header />
-    <Panel title="Panel">
-      <RadioGroup options={options} />
-      <Topping label="pepperoni" image={toppingImages.pepperoni} />
-      <Topping disabled label="bacon" image={toppingImages.bacon} />
-      <Price value={10.5} />
-    </Panel>
-    <Button text="button" />
-    <Button isRed text="red button" />
-  </Container>
-)
+  const [sizeValue, setSizeValue] = useState(0)
+  const [crustValue, setCrustValue] = useState(0)
+
+  const [price, setPrice] = useState(0)
+
+  useEffect(() => {
+    const total = sizeValue + crustValue
+    setPrice(total)
+  }, [setPrice, sizeValue, crustValue])
+
+  return (
+    <Container>
+      <Header />
+      {context === 'size-n-crust' && (
+        <SizeAndCrust
+          price={price}
+          setSizeValue={setSizeValue}
+          setCrustValue={setCrustValue}
+        />
+      )}
+    </Container>
+  )
+}
 
 export default App

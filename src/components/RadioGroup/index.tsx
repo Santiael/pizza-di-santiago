@@ -19,8 +19,8 @@ const RadioGroup: React.FC<IProps> = ({ options, onChange }) => {
   const [selected, setSeleted] = useState(0)
 
   useEffect(() => {
-    onChange && onChange(selected)
-  }, [onChange, selected])
+    onChange && onChange(options[selected].value)
+  }, [onChange, options, selected])
 
   return (
     <Container role="radiogroup">
