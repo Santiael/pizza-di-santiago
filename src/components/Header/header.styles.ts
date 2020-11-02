@@ -3,10 +3,11 @@ import styled from '@emotion/styled'
 export const Container = styled.header`
   display: flex;
   justify-content: center;
-  margin: 40px auto;
+  margin-bottom: 40px;
 
   > img {
-    width: calc(100% - 160px);
+    margin: 0 auto;
+    width: calc(100% - 80px);
     max-width: 400px;
   }
 `
