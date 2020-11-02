@@ -13,6 +13,7 @@ export default css`
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      color: ${colors.brownDark};
       font-family: 'Comfortaa', sans-serif;
       font-size: 1.2rem;
       font-weight: bold;
