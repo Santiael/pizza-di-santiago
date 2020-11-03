@@ -7,7 +7,7 @@ import RadioGroup, { Option } from 'components/RadioGroup'
 import Price from 'components/Price'
 import Button from 'components/Button'
 
-import { Container } from './size-and-crust.styles'
+import { Container, PriceWrapper, ButtonWrapper } from './size-and-crust.styles'
 
 const sizeOptions: Option[] = [
   { label: 'small', description: '(up to 5 toppings)', price: 8 },
@@ -40,14 +40,16 @@ const SizeAndCrust: React.FC = () => {
           onChange={(value) => setCrustType(value)}
         />
       </Panel>
-      <div>
+      <PriceWrapper>
         <Price value={state.price} />
+      </PriceWrapper>
+      <ButtonWrapper>
         <Button
           text="choose toppings"
           onClick={goNext}
           disabled={!state.size || !state.crustType}
         />
-      </div>
+      </ButtonWrapper>
     </Container>
   )
 }
