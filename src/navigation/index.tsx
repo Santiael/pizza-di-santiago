@@ -10,9 +10,7 @@ export interface Context {
   resetNavigation(): void
 }
 
-// eslint-disable-next-line
-// @ts-ignore
-const context: React.Context<Context> = createContext()
+const context: React.Context<Context> = createContext({} as Context)
 const { Provider } = context
 
 export const initialState = 'size-n-crust'
