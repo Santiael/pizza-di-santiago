@@ -37,7 +37,9 @@ export const Checkbox = styled.div<{ checked: boolean }>`
 
 export const ImageFrame = styled.div`
   width: 62px;
+  min-width: 62px;
   height: 62px;
+  min-height: 62px;
   margin-left: 10px;
   padding: 2px;
   border: 2px solid ${colors.brown};
