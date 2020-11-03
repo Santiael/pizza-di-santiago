@@ -26,14 +26,14 @@ const SizeAndCrust: React.FC = () => {
 
   return (
     <Container>
-      <Panel title="Size:">
+      <Panel title="Size">
         <RadioGroup
           selected={state.size}
           options={sizeOptions}
           onChange={(value) => setSize(value)}
         />
       </Panel>
-      <Panel title="Crust Type:">
+      <Panel title="Crust Type">
         <RadioGroup
           selected={state.crustType}
           options={crustOptions}

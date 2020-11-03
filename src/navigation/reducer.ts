@@ -1,11 +1,11 @@
-import { Screens } from '.'
+import { Screens, initialState } from '.'
 
-type NavigationAction = 'goPrevious' | 'goNext'
+type NavigationAction = 'goBack' | 'goNext' | 'reset'
 export type NavigationReducer = React.Reducer<Screens, NavigationAction>
 
 type Constraints = {
   [key in Screens]: {
-    previous?: Screens
+    back?: Screens
     next?: Screens
   }
 }
@@ -15,22 +15,24 @@ const constraints: Constraints = {
     next: 'toppings',
   },
   toppings: {
-    previous: 'size-n-crust',
-    next: 'check',
+    back: 'size-n-crust',
+    next: 'checkout',
   },
-  check: {
-    previous: 'toppings',
+  checkout: {
+    back: 'toppings',
   },
 }
 
 const reducer: NavigationReducer = (context, action) => {
-  const { previous, next } = constraints[context]
+  const { back, next } = constraints[context]
 
   switch (action) {
-    case 'goPrevious':
-      return previous || context
+    case 'goBack':
+      return back || context
     case 'goNext':
       return next || context
+    case 'reset':
+      return initialState
     default:
       return context
   }

@@ -11,7 +11,7 @@ import { Container, Menu, Info, ButtonsWrapper } from './toppings.styles'
 import toppings from './toppings.data'
 
 const Toppings: React.FC = () => {
-  const { goPrevious, goNext } = useNavigation()
+  const { goBack, goNext } = useNavigation()
   const { state, addTopping, removeTopping } = useStore()
 
   function setTopping(topping: string) {
@@ -44,8 +44,8 @@ const Toppings: React.FC = () => {
       </Info>
       <Price value={state.price} />
       <ButtonsWrapper>
-        <Button isRed text="return" onClick={goPrevious} />
-        <Button text="place order" onClick={goNext} />
+        <Button isRed text="return" onClick={goBack} />
+        <Button text="checkout" onClick={goNext} />
       </ButtonsWrapper>
     </Container>
   )

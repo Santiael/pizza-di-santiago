@@ -1,6 +1,8 @@
 import { calculatePrice } from './calculate-price'
 import { canAddTopping } from './can-add-topping'
 
+import { initialState } from '.'
+
 export type StoreState = {
   price: number
   size: string
@@ -10,7 +12,7 @@ export type StoreState = {
 }
 
 export type StoreAction = {
-  type: 'setSize' | 'setCrustType' | 'addTopping' | 'removeTopping'
+  type: 'setSize' | 'setCrustType' | 'addTopping' | 'removeTopping' | 'reset'
   value: string
 }
 
@@ -52,6 +54,10 @@ const reducer: StoreReducer = (state, { type, value }) => {
         price: calculatePrice(state.size, state.crustType, newToppings.length),
         canAddTopping: canAddTopping(state.size, newToppings.length),
       })
+    }
+
+    case 'reset': {
+      return initialState
     }
 
     default:

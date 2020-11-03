@@ -8,10 +8,10 @@ describe('size-n-crust context navigation', () => {
     render(<NavigableScreen />)
   })
 
-  it('should not navigate previous', async () => {
+  it('should not navigate back', async () => {
     expect(screen.getByText('size-n-crust')).toBeInTheDocument()
 
-    fireEvent.click(screen.getByText('goPrevious'))
+    fireEvent.click(screen.getByText('goBack'))
 
     await waitFor(() => {
       expect(screen.getByText('size-n-crust')).toBeInTheDocument()
@@ -38,25 +38,25 @@ describe('toppings context navigation', () => {
   it('should navigate size-n-crust', async () => {
     expect(screen.getByText('toppings')).toBeInTheDocument()
 
-    fireEvent.click(screen.getByText('goPrevious'))
+    fireEvent.click(screen.getByText('goBack'))
 
     await waitFor(() => {
       expect(screen.getByText('size-n-crust')).toBeInTheDocument()
     })
   })
 
-  it('should navigate check', async () => {
+  it('should navigate checkout', async () => {
     expect(screen.getByText('toppings')).toBeInTheDocument()
 
     fireEvent.click(screen.getByText('goNext'))
 
     await waitFor(() => {
-      expect(screen.getByText('check')).toBeInTheDocument()
+      expect(screen.getByText('checkout')).toBeInTheDocument()
     })
   })
 })
 
-describe('check context navigation', () => {
+describe('checkout context navigation', () => {
   beforeEach(async () => {
     render(<NavigableScreen />)
     fireEvent.click(screen.getByText('goNext'))
@@ -64,22 +64,22 @@ describe('check context navigation', () => {
   })
 
   it('should navigate toppings', async () => {
-    expect(screen.getByText('check')).toBeInTheDocument()
+    expect(screen.getByText('checkout')).toBeInTheDocument()
 
-    fireEvent.click(screen.getByText('goPrevious'))
+    fireEvent.click(screen.getByText('goBack'))
 
     await waitFor(() => {
       expect(screen.getByText('toppings')).toBeInTheDocument()
     })
   })
 
-  it('should navigate check', async () => {
-    expect(screen.getByText('check')).toBeInTheDocument()
+  it('should navigate checkout', async () => {
+    expect(screen.getByText('checkout')).toBeInTheDocument()
 
     fireEvent.click(screen.getByText('goNext'))
 
     await waitFor(() => {
-      expect(screen.getByText('check')).toBeInTheDocument()
+      expect(screen.getByText('checkout')).toBeInTheDocument()
     })
   })
 })

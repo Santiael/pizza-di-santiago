@@ -7,6 +7,7 @@ interface Context {
   setCrustType(crustType: string): void
   addTopping(topping: string): void
   removeTopping(topping: string): void
+  resetStore(): void
 }
 
 // eslint-disable-next-line
@@ -14,14 +15,16 @@ interface Context {
 const context: React.Context<Context> = createContext()
 const { Provider } = context
 
+export const initialState = {
+  price: 0,
+  size: '',
+  crustType: '',
+  toppings: [],
+  canAddTopping: true,
+}
+
 export const StoreProvider: React.FC = ({ children }) => {
-  const [state, dispatch] = useReducer<StoreReducer>(reducer, {
-    price: 0,
-    size: '',
-    crustType: '',
-    toppings: [],
-    canAddTopping: true,
-  })
+  const [state, dispatch] = useReducer<StoreReducer>(reducer, initialState)
 
   function setSize(size: string) {
     dispatch({ type: 'setSize', value: size })
@@ -35,10 +38,20 @@ export const StoreProvider: React.FC = ({ children }) => {
   function removeTopping(topping: string) {
     dispatch({ type: 'removeTopping', value: topping })
   }
+  function resetStore() {
+    dispatch({ type: 'reset', value: '' })
+  }
 
   return (
     <Provider
-      value={{ state, setSize, setCrustType, addTopping, removeTopping }}
+      value={{
+        state,
+        setSize,
+        setCrustType,
+        addTopping,
+        removeTopping,
+        resetStore,
+      }}
     >
       {children}
     </Provider>
