@@ -1,26 +1,32 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { Container, Checkbox, ImageFrame } from './topping.styles'
 
 interface IProps {
   label: string
   image: string
+  selected?: boolean
   disabled?: boolean
   onChange?(cheked: boolean): void
 }
 
-const Topping: React.FC<IProps> = ({ label, image, disabled, onChange }) => {
-  const [checked, setChecked] = useState(false)
+const Topping: React.FC<IProps> = ({
+  label,
+  image,
+  selected,
+  disabled,
+  onChange,
+}) => {
+  const [checked, setChecked] = useState(!!selected)
 
-  useEffect(() => {
-    onChange && onChange(checked)
-  }, [onChange, checked])
+  function onClick() {
+    if (disabled) return
+    onChange && onChange(!checked)
+    setChecked(!checked)
+  }
 
   return (
-    <Container
-      disabled={disabled}
-      onClick={() => !disabled && setChecked((checked) => !checked)}
-    >
+    <Container disabled={disabled} onClick={onClick}>
       <Checkbox
         data-testid={checked ? 'topping-checked' : 'topping-not-checked'}
         id={`topping-${label}`}

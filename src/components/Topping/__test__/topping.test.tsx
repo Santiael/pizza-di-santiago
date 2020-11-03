@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, fireEvent, waitFor } from '@testing-library/react'
 
-import toppingImages from 'assets/toppings'
+import pepperoniImage from 'assets/toppings/pepperoni.jpg'
 import Topping from '..'
 
 describe('<Topping />', () => {
@@ -9,7 +9,7 @@ describe('<Topping />', () => {
 
   it('should show topping label', () => {
     const { getByText } = render(
-      <Topping label={topping} image={toppingImages.pepperoni} />,
+      <Topping label={topping} image={pepperoniImage} />,
     )
 
     expect(getByText(topping)).toBeInTheDocument()
@@ -17,7 +17,7 @@ describe('<Topping />', () => {
 
   it('should init unchecked', () => {
     const { getByTestId } = render(
-      <Topping label={topping} image={toppingImages.pepperoni} />,
+      <Topping label={topping} image={pepperoniImage} />,
     )
 
     expect(getByTestId('topping-not-checked')).toBeInTheDocument()
@@ -25,7 +25,7 @@ describe('<Topping />', () => {
 
   it('should be checkable', async () => {
     const { getByText, getByTestId } = render(
-      <Topping label={topping} image={toppingImages.pepperoni} />,
+      <Topping label={topping} image={pepperoniImage} />,
     )
 
     fireEvent.click(getByText(topping))
@@ -43,7 +43,7 @@ describe('<Topping />', () => {
 
   it('should not be checkable when disabled', async () => {
     const { getByText, getByTestId } = render(
-      <Topping disabled label={topping} image={toppingImages.pepperoni} />,
+      <Topping disabled label={topping} image={pepperoniImage} />,
     )
 
     expect(getByTestId('topping-not-checked')).toBeInTheDocument()

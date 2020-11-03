@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import RadioButton from './RadioButton'
 
@@ -7,36 +7,38 @@ import { Container, OptionWrapper, Label, Value } from './radio-group.styles'
 export type Option = {
   label: string
   description?: string
-  value: number
+  price: number
 }
 
 interface IProps {
   options: Option[]
-  onChange?(value: number): void
+  selected?: string
+  onChange?(label: string): void
 }
 
-const RadioGroup: React.FC<IProps> = ({ options, onChange }) => {
-  const [selected, setSeleted] = useState(0)
+const RadioGroup: React.FC<IProps> = ({ options, selected, onChange }) => {
+  const [checked, setChecked] = useState<string>(selected || '')
 
-  useEffect(() => {
-    onChange && onChange(options[selected].value)
-  }, [onChange, options, selected])
+  function onSelectOption(id: number) {
+    onChange && onChange(options[id].label)
+    setChecked(options[id].label)
+  }
 
   return (
     <Container role="radiogroup">
-      {options.map(({ label, description, value }, id) => (
-        <OptionWrapper key={`${label}-${id}`}>
-          <div onClick={() => setSeleted(id)}>
+      {options.map(({ label, description, price }, id) => (
+        <OptionWrapper key={`radio-option-${label}`}>
+          <div onClick={() => onSelectOption(id)}>
             <RadioButton
-              labelledBy={`${label}-${id}`}
-              checked={selected === id}
+              labelledBy={`radio-option-${label}`}
+              checked={checked === label}
             />
-            <Label id={`${label}-${id}`}>
+            <Label id={`radio-option-${label}`}>
               {label}
               {description && <div>{description}</div>}
             </Label>
           </div>
-          <Value>{`$${value}`}</Value>
+          <Value>{`$${price}`}</Value>
         </OptionWrapper>
       ))}
     </Container>
