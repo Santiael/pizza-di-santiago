@@ -6,7 +6,7 @@ import SizeAndCrust from 'pages/SizeAndCrust'
 import Toppings from 'pages/Toppings'
 import Checkout from 'pages/Checkout'
 
-import { Container } from './app.styles'
+import { Container } from './styles'
 
 const App: React.FC = () => {
   const { context } = useNavigation()

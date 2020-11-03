@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container } from './price.styles'
+import { Container } from './styles'
 
 interface IProps {
   value: number

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from './button.styles'
+import { Container } from './styles'
 
 interface IProps {
   text: string

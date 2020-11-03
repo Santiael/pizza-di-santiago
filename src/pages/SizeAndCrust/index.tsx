@@ -7,7 +7,7 @@ import RadioGroup, { Option } from 'components/RadioGroup'
 import Price from 'components/Price'
 import Button from 'components/Button'
 
-import { Container, PriceWrapper, ButtonWrapper } from './size-and-crust.styles'
+import { Container, PriceWrapper, ButtonWrapper } from './styles'
 
 const sizeOptions: Option[] = [
   { label: 'small', description: '(up to 5 toppings)', price: 8 },

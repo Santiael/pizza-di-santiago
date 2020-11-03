@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Container, Checkbox, ImageFrame } from './topping.styles'
+import { Container, Checkbox, ImageFrame } from './styles'
 
 interface IProps {
   label: string

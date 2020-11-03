@@ -6,13 +6,7 @@ import Panel from 'components/Panel'
 import Price from 'components/Price'
 import Button from 'components/Button'
 
-import {
-  Container,
-  Field,
-  List,
-  PriceWrapper,
-  ButtonsWrapper,
-} from './checkout.styles'
+import { Container, Field, List, PriceWrapper, ButtonsWrapper } from './styles'
 
 const SizeAndCrust: React.FC = () => {
   const { state, resetStore } = useStore()

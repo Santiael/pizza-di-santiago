@@ -7,8 +7,8 @@ import Topping from 'components/Topping'
 import Button from 'components/Button'
 import Price from 'components/Price'
 
-import { Container, Menu, Info, ButtonsWrapper } from './toppings.styles'
-import toppings from './toppings.data'
+import { Container, Menu, Info, ButtonsWrapper } from './styles'
+import toppings from './data'
 
 const Toppings: React.FC = () => {
   const { goBack, goNext } = useNavigation()

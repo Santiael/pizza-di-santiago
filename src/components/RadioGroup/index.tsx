@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import RadioButton from './RadioButton'
 
-import { Container, OptionWrapper, Label, Value } from './radio-group.styles'
+import { Container, OptionWrapper, Label, Value } from './styles'
 
 export type Option = {
   label: string

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container } from './radio-button.styles'
+import { Container } from './styles'
 
 interface IProps {
   labelledBy?: string

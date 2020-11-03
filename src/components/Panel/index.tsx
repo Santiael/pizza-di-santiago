@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container } from './panel.styles'
+import { Container } from './styles'
 
 interface IProps {
   title: string
